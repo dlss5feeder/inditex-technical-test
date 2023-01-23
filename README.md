@@ -38,6 +38,16 @@ As this app is developed by using the SpringBoot framework, all is needed is exe
 
 ## Testing
 
+### H2 Database
+
+This project works over an in-memory database (H2). The access URL is the following one:
+
+http://localhost:8080/h2-console/login.do
+
+The data access can be found in the following file:
+
+    /src/main/resources/application.yaml
+
 ### Locally with Newman
 
 You can install newman (a postman version to run from command-line) that you can get with brew:
