@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "641a813f-22fc-4efc-94ec-7712d1524a9a",
+		"name": "prices-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10860784"
+	},
+	"item": [
+		{
+			"name": "Get Prices - no filters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(4);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by existing brandId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(4);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?brandId=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by non existing brandId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has no elements\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?brandId=2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by existing productId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(4);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?productId=35455",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "35455"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by non existing productId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has no elements\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?productId=999",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "999"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by applicationDate - 2020-06-14 10:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(1);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"",
+							"    pm.expect(responseJson[0].priceList).to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "applicationDate",
+							"value": "2020-06-14T10:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by applicationDate - 2020-06-14 16:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(2);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"",
+							"    pm.expect(responseJson[0].priceList).to.eql(1);",
+							"    pm.expect(responseJson[1].priceList).to.eql(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T16:00:00",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "applicationDate",
+							"value": "2020-06-14T16:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by applicationDate - 2020-06-14 21:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(1);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"",
+							"    pm.expect(responseJson[0].priceList).to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T21:00:00",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "applicationDate",
+							"value": "2020-06-14T21:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by applicationDate - 2020-06-15 10:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(2);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"",
+							"    pm.expect(responseJson[0].priceList).to.eql(1);",
+							"    pm.expect(responseJson[1].priceList).to.eql(3);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T10:00:00",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "applicationDate",
+							"value": "2020-06-15T10:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prices - filter by applicationDate - 2020-06-16 21:00:00",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"The response has the expected number of elements and attributes\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.length).to.eql(2);",
+							"    const responseJsonElement = responseJson[0];",
+							"    pm.expect(responseJsonElement).to.have.property('productId');",
+							"    pm.expect(responseJsonElement).to.have.property('brandId');",
+							"    pm.expect(responseJsonElement).to.have.property('priceList');",
+							"    pm.expect(responseJsonElement).to.have.property('price');",
+							"    pm.expect(responseJsonElement).to.have.property('startDate');",
+							"    pm.expect(responseJsonElement).to.have.property('endDate');",
+							"",
+							"    pm.expect(responseJson[0].priceList).to.eql(1);",
+							"    pm.expect(responseJson[1].priceList).to.eql(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-16T21:00:00",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "applicationDate",
+							"value": "2020-06-16T21:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

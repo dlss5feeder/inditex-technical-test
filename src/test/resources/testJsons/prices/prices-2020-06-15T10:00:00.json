@@ -1,0 +1,24 @@
+[
+  {
+    "productId": 35455,
+    "brandId": 1,
+    "priceList": 1,
+    "price": {
+      "amount": 35.5,
+      "currency": "EUR"
+    },
+    "startDate": "2020-06-14 00:00:00",
+    "endDate": "2020-12-31 23:59:59"
+  },
+  {
+    "productId": 35455,
+    "brandId": 1,
+    "priceList": 3,
+    "price": {
+      "amount": 30.5,
+      "currency": "EUR"
+    },
+    "startDate": "2020-06-15 00:00:00",
+    "endDate": "2020-06-15 11:00:00"
+  }
+]
