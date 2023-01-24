@@ -22,8 +22,8 @@
     "endDate": "2020-06-14 18:30:00"
   },
   {
-    "productId": 35455,
-    "brandId": 1,
+    "productId": 35466,
+    "brandId": 2,
     "priceList": 3,
     "price": {
       "amount": 30.5,
@@ -33,8 +33,8 @@
     "endDate": "2020-06-15 11:00:00"
   },
   {
-    "productId": 35455,
-    "brandId": 1,
+    "productId": 35477,
+    "brandId": 3,
     "priceList": 4,
     "price": {
       "amount": 38.95,

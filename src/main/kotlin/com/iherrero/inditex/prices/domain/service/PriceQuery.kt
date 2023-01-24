@@ -38,6 +38,6 @@ class PriceQuery(
                 .right()
         }.getOrElse {
             log.error("There was an error retrieving prices: ${it.message}")
-            GetPricesError.left()
+            GetPricesError("${it.message}").left()
         }
 }

@@ -48,9 +48,20 @@ The data access can be found in the following file:
 
     /src/main/resources/application.yaml
 
-### Locally with Newman
+### Unit Tests
 
-You can install newman (a postman version to run from command-line) that you can get with brew:
+The unit tests are not completed, they do not cover the 100% of the code. Just a few were implemented:
+
+- **PricesRestControllerTest**: contains the tests of the API layer
+- **PriceQueryTest**: contains the tests of the business layer
+- (other tests would need to be added, as the ones for the repository layer, or for some utility classes)
+
+### Postman/Newman tests
+
+The goal of this group of tests is to test the app from an **end-2-end perspective**. So all the required test for the
+exercise are included here
+
+You can install newman (a postman version to run from command-line) that you can get either with brew:
 
     brew install newman
 
