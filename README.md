@@ -4,7 +4,7 @@ This repository contains a technical test for Inditex company
 
 ## Project Structure
 
-The app name is **test**
+The app name is **inditex**
 
 The base package is **com.iherrero**, due to the author of this project
 
